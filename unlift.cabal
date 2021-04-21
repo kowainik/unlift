@@ -17,14 +17,15 @@ build-type:          Simple
 extra-doc-files:     README.md
                      CHANGELOG.md
 tested-with:         GHC == 8.8.4
-                     GHC == 8.10.3
+                     GHC == 8.10.4
+                     GHC == 9.0.1
 
 source-repository head
   type:                git
   location:            https://github.com/kowainik/unlift.git
 
 common common-options
-  build-depends:       base >= 4.13.0.0 && < 4.15
+  build-depends:       base >= 4.13.0.0 && < 4.16
 
   ghc-options:         -Wall
                        -Wcompat
