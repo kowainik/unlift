@@ -113,7 +113,7 @@ instance (MonadUnlift b m) => MonadUnlift b (ReaderT r m)
   where
     withRunInBase :: ((forall a . ReaderT r m a -> b a) -> b x) -> ReaderT r m x
     withRunInBase runWithReader = ReaderT $ \env ->
-        withRunInBase (\maToba -> runWithReader (maToba . flip runReaderT env))
+        withRunInBase (\ma2ba -> runWithReader (ma2ba . flip runReaderT env))
 
 {- | A helper function for implementing @MonadUnlift@ instances.
 
@@ -154,7 +154,7 @@ you need 'askUnlift' instead.
 @since 0.0.0.0
 -}
 askRunInBase :: (MonadUnlift b m) => m (m a -> b a)
-askRunInBase = withRunInBase pure
+askRunInBase = withRunInBase $ \run -> pure run
 
 {- | Polymorphic wrapper over the function returned by 'withRunInBase'.
 
