@@ -65,4 +65,7 @@ common common-options
 library
   import:              common-options
   hs-source-dirs:      src
+  build-depends:       stm ^>= 2.5
+                     , transformers-base ^>= 0.4.5
+                     , transformers ^>= 0.5
   exposed-modules:     Unlift
